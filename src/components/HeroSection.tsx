@@ -8,7 +8,9 @@ const HeroSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    const audio = new Audio("/audio/babi_intro.mp3");
+    const audio = new Audio(
+      `${import.meta.env.BASE_URL}audio/babi_intro.mp3`
+    );
     audio.preload = "auto";
     audioRef.current = audio;
 
@@ -28,7 +30,7 @@ const HeroSection = () => {
 
     if (isPlaying) {
       audio.pause();
-      audio.currentTime = 0; // σταματά και γυρνά στην αρχή
+      audio.currentTime = 0;
       setIsPlaying(false);
     } else {
       try {
